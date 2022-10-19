@@ -89,11 +89,39 @@ class MerchControl extends React.Component {
       // Because a user will actually be clicking on the merch in the Merch component, we will need to pass our new handleChangingSelectedMerch method as a prop.
       buttonText = "Add Merch";
     }
-
+    const buttonStyle = {
+      marginLeft: "5%",
+      alignSelf: "center",
+      backgroundColor: "burlywood",
+      backgroundImage: "none",
+      backgroundPosition: "0 90%",
+      backgroundRepeat: "repeat no-repeat",
+      backgroundSize: "4px 3px",
+      borderRadius: "15px 225px 255px 15px 15px 255px 225px 15px",
+      borderStyle: "solid",
+      borderWidth: "2px",
+      boxShadow: "rgba(0, 0, 0, .2) 15px 28px 25px -18px",
+      boxSizing: "border-box",
+      color: "#41403e",
+      cursor: "pointer",
+      display: "inline-block",
+      fontSize: ".7rem",
+      lineHeight: "23px",
+      outline: "none",
+      padding: ".25rem",
+      textDecoration: "none",
+      transition: "all 235ms ease-in-out",
+      borderBottomLeftRadius: "15px 255px",
+      borderBottomRightRadius: "225px 15px",
+      borderTopLeftRadius: "255px 15px",
+      borderTopRightRadius: "15px 225px",
+      userSelect: "none",
+      touchAction: "manipulation",
+    }
     return (
       <React.Fragment>
         {currentlyVisibleState}
-        <button onClick={this.handleClick}>{buttonText}</button> 
+        <button style={buttonStyle} onClick={this.handleClick}>{buttonText}</button> 
       </React.Fragment>
     );
   }

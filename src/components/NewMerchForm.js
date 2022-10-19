@@ -19,7 +19,7 @@ function NewMerchForm(props){
     <React.Fragment>
         <ReusableForm 
         formSubmissionHandler={handleNewMerchFormSubmission}
-        buttonText="Help!" />
+        buttonText="Add Merch" />
     </React.Fragment>
   );
 }
