@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 
 
 
-function MerchStyle(props){
+function MerchList(props){
   return (
     <React.Fragment>
       <hr/>
-      {props.merchStyle.map((merch) =>
+      {props.merchList.map((merch) =>
         <Merch
           whenMerchClicked = { props.onMerchSelection }
           style={merch.style}
@@ -22,10 +22,10 @@ function MerchStyle(props){
   );
 }
 
-// Add propTypes for merchStyle.
-MerchStyle.propTypes = {
-  merchStyle: PropTypes.array,
+// Add propTypes for merchList.
+MerchList.propTypes = {
+  merchList: PropTypes.array,
   onMerchSelection: PropTypes.func
 };
 
-export default MerchStyle;
+export default MerchList;
