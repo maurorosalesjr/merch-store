@@ -51,7 +51,7 @@ function ReusableForm(props) {
           placeholder='name of product line' />
           <br></br>
         <input
-          type='text'
+          type='number'
           name='price'
           placeholder='price' />
           <br></br>
@@ -59,6 +59,12 @@ function ReusableForm(props) {
           name='description'
           placeholder='Describe the item.' />
           <br></br>
+        <input 
+        type='number'
+        name='quantity'
+        placeholder="quantity"
+        />
+        <br></br>
         <button style={buttonStyle} type='submit'>{props.buttonText}</button>
       </form>
       </div>

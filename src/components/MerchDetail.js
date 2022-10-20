@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function MerchDetail(props){
-  const { merch, onClickingDelete } = props;
+  const { merch, onClickingDelete, onClickingSubtractQuantity } = props;
 
   const detailStyle = {
     marginLeft: "5%",
@@ -42,14 +42,21 @@ function MerchDetail(props){
     touchAction: "manipulation",
   }
 
+  const onlyStyle = {
+    color: "red",
+  }
+
   return (
     <React.Fragment>
       <div style={detailStyle}>
         <h1>Merch Detail</h1>
         <h3>{merch.name}</h3>
+        <p style={onlyStyle}>Only {merch.quantity} left!</p>
         <p><em>${merch.price} USD </em>- {merch.description}</p>
+        <button style={buttonStyle} onClick={()=> onClickingSubtractQuantity(merch.id, -1) }>Quick Buy!</button>
+        <br></br>
         <button style={buttonStyle} onClick={ props.onClickingEdit }>Update Merch</button> 
-        <button style={buttonStyle} onClick={()=> onClickingDelete(merch.id) }>Out Of Stock</button> 
+        <button style={buttonStyle} onClick={()=> onClickingDelete(merch.id) }>Delete Stock</button> 
         <hr/>
       </div>
     </React.Fragment>
@@ -58,6 +65,7 @@ function MerchDetail(props){
 
 MerchDetail.propTypes = {
   merch: PropTypes.object,
+  onClickingSubtractQuantity: PropTypes.func,
   onClickingDelete: PropTypes.func,
   onClickingEdit: PropTypes.func
 };

@@ -11,10 +11,11 @@ function MerchList(props){
       {props.merchList.map((merch) =>
         <Merch
           whenMerchClicked = { props.onMerchSelection }
-          style={merch.style}
+          style={toString(merch.style)}
           name={merch.name}
-          price={merch.price}
+          price={parseInt(merch.price)}
           description={merch.description}
+          quantity={parseInt(merch.quantity)}
           id={merch.id}
           key={merch.id}/>
       )}

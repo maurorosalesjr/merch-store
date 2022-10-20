@@ -12,6 +12,7 @@ function NewMerchForm(props){
       name: event.target.name.value, 
       price: event.target.price.value, 
       description: event.target.description.value, 
+      quantity: event.target.quantity.value,
       id: v4()
     });
   }

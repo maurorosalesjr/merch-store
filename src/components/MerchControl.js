@@ -67,6 +67,14 @@ class MerchControl extends React.Component {
       });
   }
 
+  handleSubtractQuantity = (id, amount) => {
+    let newQuantity;
+    newQuantity(merch => merch.map(merch=> merch.id === id  ?
+    {...merch, quantity: merch.quantity - amount} : merch));
+    };
+        
+      
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null; 
@@ -77,7 +85,8 @@ class MerchControl extends React.Component {
     } else if (this.state.selectedMerch != null) {
       currentlyVisibleState = <MerchDetail merch = {this.state.selectedMerch} 
                                             onClickingDelete = {this.handleDeletingMerch}
-                                            onClickingEdit = {this.handleEditClick} />
+                                            onClickingEdit = {this.handleEditClick}
+                                            onClickingSubtractQuantity = {this.handleSubtractQuantity}/>
       buttonText = "Return to Merch List";
       // While our MerchDetail component only takes placeholder data, we will eventually be passing the value of selectedMerch as a prop.
     } else if (this.state.formVisibleOnPage) {

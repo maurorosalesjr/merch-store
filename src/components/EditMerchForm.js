@@ -7,7 +7,12 @@ function EditMerchForm (props) {
 
   function handleEditMerchFormSubmission(event) {
     event.preventDefault();
-    props.onEditMerch({style: event.target.style.value, name: event.target.name.value, price: event.target.price.value, description: event.target.description.value, id: merch.id});
+    props.onEditMerch({ style: event.target.style.value, 
+                        name: event.target.name.value, 
+                        price: event.target.price.value, 
+                        description: event.target.description.value, 
+                        quantity: event.target.quantity.value,
+                        id: merch.id});
   }
   return (
     <React.Fragment>
