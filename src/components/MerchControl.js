@@ -67,10 +67,8 @@ class MerchControl extends React.Component {
       });
   }
 
-  handleSubtractQuantity = (id, amount) => {
-    let newQuantity;
-    newQuantity(merch => merch.map(merch=> merch.id === id  ?
-    {...merch, quantity: merch.quantity - amount} : merch));
+  handleSubtractQuantity = () => {
+    this.setState( {quantity: this.state.quantity -1} )
     };
         
       

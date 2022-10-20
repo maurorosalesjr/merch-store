@@ -53,7 +53,7 @@ function MerchDetail(props){
         <h3>{merch.name}</h3>
         <p style={onlyStyle}>Only {merch.quantity} left!</p>
         <p><em>${merch.price} USD </em>- {merch.description}</p>
-        <button style={buttonStyle} onClick={()=> onClickingSubtractQuantity(merch.id, -1) }>Quick Buy!</button>
+        <button style={buttonStyle} onClick={()=> onClickingSubtractQuantity(merch.id) }>Quick Buy!</button>
         <br></br>
         <button style={buttonStyle} onClick={ props.onClickingEdit }>Update Merch</button> 
         <button style={buttonStyle} onClick={()=> onClickingDelete(merch.id) }>Delete Stock</button> 
