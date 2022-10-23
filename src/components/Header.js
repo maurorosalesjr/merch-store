@@ -6,7 +6,6 @@ const headerStyle = {
   textAlign: "center",
   textDecoration: "underline",
   textDecorationStyle: "double",
-  textShadow: "50px",
   fontFamily: "Cursive",
   border: "5px",
   borderStyle: "solid",

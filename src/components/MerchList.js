@@ -11,6 +11,7 @@ function MerchList(props){
       {props.merchList.map((merch) =>
         <Merch
           whenMerchClicked = { props.onMerchSelection }
+          whenSaleClicked={props.onClickingSubtractQuantity}
           style={toString(merch.style)}
           name={merch.name}
           price={parseInt(merch.price)}

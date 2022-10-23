@@ -67,9 +67,25 @@ class MerchControl extends React.Component {
       });
   }
 
-  handleSubtractQuantity = () => {
-    this.setState( {quantity: this.state.quantity -1} )
-    };
+  handleSubtractQuantity = (id) => {
+    const sellMerch = this.state.mainMerchList.filter(merch => merch.id === id)[0];
+
+    if(sellMerch.quantity > 0) {
+      const sold = sellMerch.quantity - 1;
+      const soldMerch = {...sellMerch, quantity: sold}
+      const newMainMerchList = this.state.mainMerchList.filter(merch => merch.id !== id).concat(soldMerch)
+        this.setState({
+          mainMerchList: newMainMerchList,
+          selectedMerch: null,
+                      });
+        } else {
+          const newMainMerchList = this.state.mainMerchList.filter(merch => merch.id !== id);
+            this.setState({
+              mainMerchList: newMainMerchList,
+              selectedMerch: null
+            });
+        }
+    }
         
       
 
@@ -82,6 +98,7 @@ class MerchControl extends React.Component {
       buttonText = "Return to Merch List";
     } else if (this.state.selectedMerch != null) {
       currentlyVisibleState = <MerchDetail merch = {this.state.selectedMerch} 
+                            
                                             onClickingDelete = {this.handleDeletingMerch}
                                             onClickingEdit = {this.handleEditClick}
                                             onClickingSubtractQuantity = {this.handleSubtractQuantity}/>
@@ -92,7 +109,7 @@ class MerchControl extends React.Component {
       currentlyVisibleState = <NewMerchForm onNewMerchCreation={this.handleAddingNewMerchToList}  />;
       buttonText = "Return to Merch List";
     } else {
-      currentlyVisibleState = <MerchList merchList={this.state.mainMerchList} onMerchSelection={this.handleChangingSelectedMerch} />;
+      currentlyVisibleState = <MerchList merchList={this.state.mainMerchList} onMerchSelection={this.handleChangingSelectedMerch} onClickingSubtractQuantity = {this.handleSubtractQuantity}/>;
       // Because a user will actually be clicking on the merch in the Merch component, we will need to pass our new handleChangingSelectedMerch method as a prop.
       buttonText = "Add Merch";
     }
